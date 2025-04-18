@@ -1,0 +1,402 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  background-color: #021130;
+  color: rgb(255, 255, 255);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+:root {
+  /*      COLORS      */
+  --dark-blue: #021130;
+  --opacity-dark-blue: #021130cc;
+  --medium-blue: #133474;
+  --opacity-medium-blue: #133474cc;
+  --lightest-blue: #8486ac;
+  --opacity-lightest-blue: #8486accc;
+  --yellow: #d6b265;
+  --opacity-yellow: #d6b265cc;
+  /*      BREAKPOINTS       */
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+}
+section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  padding: 0px;
+  scroll-snap-align: start;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  height: 300%;
+}
+.background-stars {
+  position: absolute;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+  top: 300%;
+}
+#about-me-text {
+  color: #babcee;
+}
+#picture-olga {
+  max-width: 30%;
+}
+
+/*          STRUCTURE       */
+
+/* FLEX */
+.w100 {
+  width: 100%;
+}
+/* FLEX DIRECTION */
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ALIGN TEXT */
+.a-t-center {
+  text-align: center;
+}
+.a-t-left {
+  display: flex;
+  text-align: left;
+}
+/* ALIGN ITEMS VERTICALLY */
+.a-i-center {
+  display: flex;
+  align-items: center;
+}
+.a-i-left {
+  display: flex;
+  align-items: flex-start;
+}
+.a-i-flex-start {
+  display: flex;
+  align-items: flex-start;
+}
+.a-i-flex-end {
+  display: flex;
+  align-items: flex-end;
+}
+/* JUSTIFY CONTENT HORIZONTALLY */
+/* CENTER */
+.j-center {
+  display: flex;
+  justify-content: center;
+}
+.j-s-evenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+.j-left {
+  display: flex;
+  justify-content: flex-start;
+}
+.j-flex.end {
+  display: flex;
+  justify-content: flex-end;
+}
+/* #nav-container {
+  position: sticky;
+  top: 0;
+  background-color: #aeb6c411;
+  color: white;
+} */
+#main-nav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: transparent;
+  color: white;
+  padding: 1rem 0;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  background-color: rgba(2, 17, 48, 0.9); /* subtle dark blue background */
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--medium-blue);
+}
+/* .active {
+  font-family: "Orbitron", sans-serif;
+  font-size: 70px;
+  font-weight: 600;
+  color: transparent;
+  background: linear-gradient(
+    120deg,
+    var(--dark-blue),
+    var(--opacity-dark-blue),
+    #9d00ff,
+    #ffcc70
+  );
+  --dark-blue: #021130;
+  --opacity-dark-blue: #021130cc;
+  --medium-blue: #133474;
+  --opacity-medium-blue: #133474cc;
+  --lightest-blue: #8486ac;
+  --opacity-lightest-blue: #8486accc;
+  --yellow: #d6b265;
+  --opacity-yellow: #d6b265cc;
+  background-size: 300% 300%;
+  --webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 6s ease-in-out infinite;
+
+  position: relative;
+} */
+
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* justify-content: center;
+justify-content: start;
+justify-content: end;
+justify-content: flex-start;
+justify-content: flex-end;
+justify-content: left;
+justify-content: right;
+/* Distributed alignment */
+
+/* justify-content: space-between;
+justify-content: space-around;
+justify-content: space-evenly;
+justify-content: stretch; */
+/* Overflow alignment (for positional alignment only)*/
+
+/* justify-content: safe center;
+justify-content: unsafe center; */
+
+/* Global values */
+/* justify-content: inherit;
+justify-content: initial;
+justify-content: revert;
+justify-content: revert-layer;
+justify-content: unset;  */
+
+/* CIRCLE SHAPE */
+.circle {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+#skills {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* WIDTH AND PADDING FOR SKILLS AND CONTACT */
+.w-fit {
+  width: fit-content;
+  padding: 0.5rem 1rem;
+}
+.h100 {
+  height: 100%;
+}
+/* PADDING 1 REM */
+.p3 {
+  padding: 3rem;
+}
+/* BORDER FOR ABOUT ME, SKILLS AND CONTACT */
+.border-mixed {
+  border-top-right-radius: 20%;
+  border-bottom-left-radius: 20%;
+}
+
+/*          COLORS        */
+
+/* DARK BLUE BACKGROUND */
+.d-b-bg {
+  background-color: var(--dark-blue);
+}
+
+/* DARK BLUE BACKGROUND OPACITY */
+.d-b-bg-o {
+  background-color: var(--opacity-dark-blue);
+}
+
+/* DARK BLUE TEXT */
+.d-b-t {
+  color: var(--dark-blue);
+}
+
+/* MEDIUM BLUE BACKGROUND */
+.m-b-bg {
+  background-color: var(--medium-blue);
+}
+
+/* MEDIUM BLUE BACKGROUND OPACITY*/
+.m-b-bg-o {
+  background-color: var(--opacity-medium-blue);
+}
+
+/* LIGHTEST BLUE BACKGROUND */
+.l-b-bg {
+  background-color: var(--lightest-blue);
+}
+
+/* LIGHTEST BLUE BACKGROUND OPACITY*/
+.l-b-bg-o {
+  background-color: var(--opacity-lightest-blue);
+}
+
+/* LIGHTEST BLUE TEXT */
+.l-b-t {
+  color: var(--lightest-blue);
+}
+
+/* YELLOW BACKGROUND */
+.y-bg {
+  background-color: var(--yellow);
+}
+
+/* YELLOW BACKGROUND OPACITY */
+.y-bg-o {
+  background-color: var(--opacity-yellow);
+}
+
+/* YELLOW TEXT */
+.y-t {
+  color: var(--yellow);
+}
+
+/*         FONTS        */
+
+/* UPPERCASE */
+.upper {
+  text-transform: uppercase;
+}
+/* ROBOT MONO */
+.robot {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 500; /* Use a value from 100 to 700 */
+  font-style: normal;
+}
+.bruno-ace {
+  font-family: "Bruno Ace SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.name {
+  font-family: Header;
+  font-size: 10em;
+}
+@font-face {
+  font-family: Header;
+  src: url("Fonts/titleMain/ahsing-regular.otf");
+}
+
+@media (min-width: 401px) {
+  .nav-uni {
+    padding: 0 15px;
+  }
+}

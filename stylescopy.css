@@ -1,0 +1,518 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  --moz-text-size-adjust: none;
+  --webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  background-color: #021130;
+  color: rgb(255, 255, 255);
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  /* scroll-margin-block: 5ex; */
+
+  scroll-margin-block: 0;
+}
+
+/* 
+END OF RESETING
+ */
+
+/* 
+START OF MY STYLING
+ */
+
+:root {
+  /*      COLORS      */
+  --dark-blue: #021130;
+  --opacity-dark-blue: #021130cc;
+  --medium-blue: #133474;
+  --opacity-medium-blue: #133474cc;
+  --lightest-blue: #8486ac;
+  --opacity-lightest-blue: #8486accc;
+  --yellow: #d6b265;
+  --opacity-yellow: #d6b265cc;
+  /*      BREAKPOINTS       */
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+}
+
+/* 
+                                            ELEMENTS 
+*/
+
+/* 
+UNIVERSAL
+*/
+
+section {
+  scroll-snap-align: start;
+  margin-bottom: 0%;
+}
+.w100 {
+  width: 100%;
+}
+.h100vh {
+  height: 100vh;
+}
+.h100 {
+  height: 100%;
+}
+
+.h-w-100 {
+  height: 100%;
+  width: 100%;
+}
+
+.h-70 {
+  height: 70%;
+}
+/* WIDTH AND PADDING FOR SKILLS AND CONTACT */
+
+.w-fit {
+  width: fit-content;
+  padding: 0.5rem 1rem;
+}
+/*
+BACKGROUNDS
+*/
+
+.background {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  height: 300vh;
+  /* 
+  max-height: 1784px; */
+}
+.background-stars {
+  position: absolute;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+  top: 300vh;
+  height: 100vh;
+}
+
+/* 
+NAV
+*/
+
+#main-nav a {
+  text-decoration: none;
+}
+#main-nav {
+  position: sticky;
+  background-color: var(--opacity-dark-blue);
+  color: white;
+  z-index: 1;
+  font-size: 1.4rem;
+}
+.sticky-nav {
+  position: sticky !important;
+  top: 0;
+  z-index: 999;
+  left: 0;
+  width: 100%;
+  color: rgb(255, 255, 255);
+  background-color: rgba(
+    2,
+    17,
+    48,
+    0.9
+  ); /* 
+  border-bottom: 1px solid var(--medium-blue); */
+}
+.nav-portfolio {
+  background-color: var(--medium-blue);
+}
+.nav-get-in-touch {
+  background-color: var(--lightest-blue);
+}
+/* .active {
+  font-family: "Orbitron", sans-serif;
+  font-size: 70px;
+  font-weight: 600;
+  color: transparent;
+  background: linear-gradient(
+    120deg,
+    var(--dark-blue),
+    var(--opacity-dark-blue),
+    #9d00ff,
+    #ffcc70
+  );
+  --dark-blue: #021130;
+  --opacity-dark-blue: #021130cc;
+  --medium-blue: #133474;
+  --opacity-medium-blue: #133474cc;
+  --lightest-blue: #8486ac;
+  --opacity-lightest-blue: #8486accc;
+  --yellow: #d6b265;
+  --opacity-yellow: #d6b265cc;
+  background-size: 300% 300%;
+  --webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 6s ease-in-out infinite;
+
+  position: relative;
+} */
+
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* .active {
+  font-size: 1rem;
+} */
+
+/* BORDER FOR ABOUT ME, SKILLS AND CONTACT */
+.border-mixed {
+  border-top-right-radius: 20%;
+  border-bottom-left-radius: 20%;
+}
+
+/*      
+  HOMEPAGE 
+*/
+
+.name {
+  font-family: Header;
+  font-size: 17em;
+  line-height: 1;
+  letter-spacing: 0.2rem;
+}
+
+/* 
+ABOUT ME
+*/
+
+#about-me-text {
+  color: #babcee;
+}
+#about-me-text-container {
+  width: 50%;
+}
+#about-me-right {
+  width: 50%;
+  padding-right: 0%;
+  margin-right: 0%;
+  display: flex;
+  justify-content: flex-end;
+}
+#picture-olga {
+  max-width: 60%;
+  align-self: flex-end;
+  order: 1;
+}
+
+/*          
+STRUCTURE       
+*/
+
+/* FLEX */
+
+/* 
+FLEX DIRECTION
+*/
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.gap-10 {
+  gap: 10em;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.f-wrap {
+  flex-wrap: wrap;
+}
+/* 
+ALIGN TEXT VERTICALLY 
+*/
+
+.a-t-center {
+  text-align: center;
+}
+.a-t-left {
+  display: flex;
+  text-align: left;
+}
+
+/* 
+ALIGN ITEMS VERTICALLY 
+ */
+
+.a-i-center {
+  display: flex;
+  align-items: center;
+}
+.a-i-left {
+  display: flex;
+  align-items: flex-start;
+}
+.a-i-flex-start {
+  display: flex;
+  align-items: flex-start;
+}
+.a-i-flex-end {
+  display: flex;
+  align-items: flex-end;
+}
+
+/*  
+JUSTIFY CONTENT HORIZONTALLY
+ */
+
+/* CENTER */
+
+.j-center {
+  display: flex;
+  justify-content: center;
+}
+.j-s-evenly {
+  display: flex;
+  justify-content: space-around;
+}
+.j-around {
+  display: flex;
+  justify-content: space-between;
+}
+.j-left {
+  display: flex;
+  justify-content: flex-start;
+}
+.j-flex.end {
+  display: flex;
+  justify-content: flex-end;
+}
+.j-s-center {
+  justify-content: center;
+}
+
+/* 
+PADDING 
+*/
+
+.p-t-b-1-4 {
+  padding: 1.4rem 0;
+}
+.p2-t-b {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+.p4-l-r {
+  /* 
+  padding-left: 4rem;
+  padding-right: 4rem; */
+  padding: 4rem;
+}
+.p10-l-r {
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+.p0 {
+  padding: 0;
+}
+/* 
+MARGIN
+ */
+.m0 {
+  margin: 0;
+}
+
+/* CIRCLE SHAPE */
+
+.circle {
+  border-radius: 50%;
+  height: 20vh;
+  width: 20vh;
+  text-align: center;
+}
+
+/*          
+COLORS
+*/
+
+/* DARK BLUE BACKGROUND */
+.d-b-bg {
+  background-color: var(--dark-blue);
+}
+
+/* DARK BLUE BACKGROUND OPACITY */
+.d-b-bg-o {
+  background-color: var(--opacity-dark-blue);
+}
+
+/* DARK BLUE TEXT */
+.d-b-t {
+  color: var(--dark-blue);
+}
+
+/* MEDIUM BLUE BACKGROUND */
+.m-b-bg {
+  background-color: var(--medium-blue);
+}
+
+/* MEDIUM BLUE BACKGROUND OPACITY*/
+.m-b-bg-o {
+  background-color: var(--opacity-medium-blue);
+}
+
+/* LIGHTEST BLUE BACKGROUND */
+.l-b-bg {
+  background-color: var(--lightest-blue);
+}
+
+/* LIGHTEST BLUE BACKGROUND OPACITY*/
+.l-b-bg-o {
+  background-color: var(--opacity-lightest-blue);
+}
+
+/* LIGHTEST BLUE TEXT */
+.l-b-t {
+  color: var(--lightest-blue);
+}
+
+/* YELLOW BACKGROUND */
+.y-bg {
+  background-color: var(--yellow);
+}
+
+/* YELLOW BACKGROUND OPACITY */
+.y-bg-o {
+  background-color: var(--opacity-yellow);
+}
+
+/* YELLOW TEXT */
+.y-t {
+  color: var(--yellow);
+}
+
+/*         FONTS AND TEXT       */
+h2 {
+  font-size: 2.6rem;
+  line-height: 1.5;
+}
+/* UPPERCASE */
+.upper {
+  text-transform: uppercase;
+}
+/* ROBOT MONO */
+.robot {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 500; /* Use a value from 100 to 700 */
+  font-style: normal;
+}
+.bruno-ace {
+  font-family: "Bruno Ace SC", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* OLGA MAZUR BANNER TEXT */
+@font-face {
+  font-family: Header;
+  src: url("Fonts/titleMain/ahsing-regular.otf");
+}
+
+/* LINE HEIGHT */
+.l-h-1-5 {
+  line-height: 1.5;
+}

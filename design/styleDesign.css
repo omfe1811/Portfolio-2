@@ -1,0 +1,239 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  background-color: #021130;
+  color: rgb(255, 255, 255);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+* + * {
+  margin-top: 1em;
+}
+.border {
+  border: solid #8486ac;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+.padding {
+  padding: 1em;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.paragraph {
+  width: 50vw;
+}
+/*              COLOR PALLETE */
+.color {
+  width: 60rem;
+  height: 20rem;
+  display: grid;
+  align-items: center;
+  text-align: center;
+}
+#color1 {
+  background-color: #8c050e;
+  margin-top: 1em;
+}
+#color2 {
+  background-color: #133474;
+}
+#color3 {
+  background-color: #d6b265;
+}
+
+#color4 {
+  background-color: #8486ac;
+}
+#color5 {
+  background-color: #021130;
+}
+#background {
+  background-image: url("pictures/pillars-of-creation.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  max-width: 120rem;
+  min-height: 100rem;
+}
+/*                    FONTS */
+/* TITLE FONT */
+.ahsing {
+  font-family: Header;
+  font-size: 10em;
+}
+
+/* HEADERS + NAVBAR FONT */
+/* <weight>: Use a value from 100 to 700 */
+.name-of-section {
+  font-size: 4rem;
+  font-weight: 500;
+  text-align: center;
+}
+.name-of-type {
+  background-color: #8486ac;
+  color: #021130;
+  margin-top: 3rem;
+}
+.figtree-header {
+  font-family: "Monofett", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.zen-dots-regular {
+  font-family: "Zen Dots", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  /* Weight: 100 – 700 */
+}
+.mitr-extralight {
+  font-family: "Mitr", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.mitr-light {
+  font-family: "Mitr", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.mitr-regular {
+  font-family: "Mitr", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.mitr-medium {
+  font-family: "Mitr", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.mitr-semibold {
+  font-family: "Mitr", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.mitr-bold {
+  font-family: "Mitr", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.bruno-ace-sc-regular {
+  font-family: "Bruno Ace SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* PARAGRAPHS FONT */
+
+.roboto-mono-paragraph {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 500; /* Use a value from 100 to 700 */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Header;
+  src: url("Fonts/titleMain/ahsing-regular.otf");
+}
