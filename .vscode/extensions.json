@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "mixenia.kittyplush-palette",
-    "xiej.harsh-magenta-dark-theme"
+    "xiej.harsh-magenta-dark-theme",
+    "bradlc.vscode-tailwindcss"
   ]
 }

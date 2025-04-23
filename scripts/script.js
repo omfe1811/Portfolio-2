@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const color = entry.target.getAttribute("data-nav-class");
-        nav.className = `main-nav ${color}`; // assumes base class is `main-nav`
+        nav.className = `main-nav ${color}`;
       }
     });
   }, observerOptions);
@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
   sections.forEach((section) => {
     sectionObserver.observe(section);
   });
-  navColor();
 }); /* 
 console.log(eval("2 + 2"));
 const adjustHomeHeight = document.getElementById("home-page-container"); */

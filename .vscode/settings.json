@@ -1,0 +1,12 @@
+{
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.experimental.classRegex": [
+    "tw`([^`]*)",
+    "tw=\"([^\"]*)\"",
+    "tw={\"([^\"]*)\"}",
+    "tw\\.\\w+`([^`]*)`"
+  ]
+}
