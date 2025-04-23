@@ -4,7 +4,6 @@
 *::after {
   box-sizing: border-box;
 }
-
 /* Prevent font size inflation */
 html {
   --moz-text-size-adjust: none;
@@ -45,8 +44,6 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  image-rendering: optimizeQuality;
-  background-position: top 10%;
 }
 
 /* Set shorter line heights on headings and interactive elements */
@@ -135,14 +132,9 @@ START OF MY STYLING
 /* 
 UNIVERSAL
 */
-/* .background-stars {
-  background: url("pictures/pillars-stars.jpg") var(--opacity-lightest-blue);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: 100vh;
-  background-blend-mode: color;
-} */
+.inline {
+  display: inline;
+}
 section {
   scroll-snap-align: start;
   margin-bottom: 0%;
@@ -329,6 +321,10 @@ FLEX DIRECTION
   gap: 1rem;
 }
 .f-wrap {
+  flex-wrap: wrap;
+}
+.wrap {
+  display: inline-flex;
   flex-wrap: wrap;
 }
 /* 
