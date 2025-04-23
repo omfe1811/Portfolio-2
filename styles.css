@@ -40,6 +40,10 @@ ol[role="list"] {
 body {
   min-height: 100vh;
   line-height: 1.5;
+  background-image: url(pictures/pillars-2-3.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 /* Set shorter line heights on headings and interactive elements */
@@ -132,6 +136,7 @@ UNIVERSAL
 section {
   scroll-snap-align: start;
   margin-bottom: 0%;
+  height: 100vh;
 }
 .w100 {
   width: 100%;
@@ -161,23 +166,14 @@ section {
 BACKGROUNDS
 */
 
-.background {
+/* .background {
   position: absolute;
   width: 100%;
   z-index: -1;
   height: 300vh;
+}
   /* 
   max-height: 1784px; */
-}
-.background-stars {
-  position: absolute;
-  width: 100%;
-  object-fit: cover;
-  z-index: -1;
-  top: 300vh;
-  height: 100vh;
-}
-
 /* 
 NAV
 */
@@ -199,18 +195,19 @@ NAV
   left: 0;
   width: 100%;
   color: rgb(255, 255, 255);
-  background-color: rgba(
-    2,
-    17,
-    48,
-    0.9
-  ); /* 
+  /* 
   border-bottom: 1px solid var(--medium-blue); */
+}
+.nav-home {
+  background-color: rgba(2, 17, 48, 0.9);
+}
+.nav-about {
+  background-color: var(--dark-blue);
 }
 .nav-portfolio {
   background-color: var(--medium-blue);
 }
-.nav-get-in-touch {
+.nav-contact {
   background-color: var(--lightest-blue);
 }
 /* .active {
@@ -269,7 +266,7 @@ NAV
 
 .name {
   font-family: Header;
-  font-size: 17em;
+  font-size: 10em;
   line-height: 1;
   letter-spacing: 0.2rem;
 }
@@ -311,8 +308,8 @@ FLEX DIRECTION
   display: flex;
   flex-direction: row;
 }
-.gap-10 {
-  gap: 10em;
+.gap-5 {
+  gap: 5em;
 }
 .column {
   display: flex;
@@ -365,7 +362,7 @@ JUSTIFY CONTENT HORIZONTALLY
   display: flex;
   justify-content: center;
 }
-.j-s-evenly {
+.j-evenly {
   display: flex;
   justify-content: space-around;
 }
