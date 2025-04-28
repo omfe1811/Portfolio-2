@@ -45,4 +45,4 @@ document.addEventListener("DOMContentLoaded", function () {
   adjustHomeHeight();
   handleScroll();
   navColor();
-}); /* 
+});

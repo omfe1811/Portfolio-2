@@ -37,8 +37,7 @@ ol[role="list"] {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
-  max-height: 400vh;
+  min-height: 400vh;
   line-height: 1.5;
   background-image: url(pictures/pillars-2-3.png);
   background-size: cover;
@@ -145,6 +144,9 @@ section {
 .w100 {
   width: 100%;
 }
+.w50 {
+  width: 50%;
+}
 .h100vh {
   height: 100vh;
 }
@@ -182,7 +184,7 @@ BACKGROUNDS
 NAV
 */
 
-#main-nav a {
+a {
   text-decoration: none;
 }
 #main-nav {
@@ -190,7 +192,9 @@ NAV
   background-color: var(--opacity-dark-blue);
   color: white;
   z-index: 1;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  height: 4rem;
+  align-content: center;
 }
 .sticky-nav {
   position: sticky !important;
@@ -270,9 +274,9 @@ NAV
 
 .name {
   font-family: Header;
-  font-size: 10em;
+  font-size: 12rem;
   line-height: 1;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.7rem;
 }
 
 /* 
@@ -320,6 +324,7 @@ FLEX DIRECTION
   flex-direction: column;
   gap: 1rem;
 }
+
 .f-wrap {
   flex-wrap: wrap;
 }
@@ -370,7 +375,7 @@ JUSTIFY CONTENT HORIZONTALLY
   display: flex;
   justify-content: center;
 }
-.j-evenly {
+.j-s-a {
   display: flex;
   justify-content: space-around;
 }
@@ -387,6 +392,7 @@ JUSTIFY CONTENT HORIZONTALLY
   justify-content: flex-end;
 }
 .j-s-center {
+  display: flex;
   justify-content: center;
 }
 
@@ -515,4 +521,14 @@ h2 {
 /* LINE HEIGHT */
 .l-h-1-5 {
   line-height: 1.5;
+}
+
+/* DIFFERENT SIZES */
+
+/* COLUMNS FOR SMALL SCREENS */
+
+@media (max-width: 400px) {
+  .flex-grid {
+    display: block;
+  }
 }
