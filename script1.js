@@ -4,45 +4,56 @@ document.addEventListener("DOMContentLoaded", function () {
   const homePage = document.getElementById("home-page-container");
   const portfolio = document.getElementById("portfolio");
   const getInTouch = document.getElementById("get-in-touch");
-  const homeTop = homePage.offsetTop;
-  const aboutTop = aboutPage.offsetTop - nav.offsetHeight;
-  const portfolioTop = portfolio.offsetTop - nav.offsetHeight;
-  const getInTouchTop = getInTouch.offsetTop - nav.offsetHeight;
-  const scroll = scroll;
+  const sections = document.querySelectorAll("section");
+
+  let aboutTop = 0;
+
+  const navHeight = nav.offsetHeight;
+  const viewportHeight = window.innerHeight;
+  const calculatedHeight = Math.max(0, viewportHeight - 2 * navHeight);
+
+  const colorClasses = ["d-b-bg", "m-d-bg", "nav-dark", "l-b-bg"]; // Replace with your actual color classes
+
+  // IntersectionObserver for color changes
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.6,
+  };
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const color = entry.target.getAttribute("data-nav-class");
+        if (color) {
+          nav.classList.remove(...colorClasses);
+          nav.classList.add(color);
+        }
+      }
+    });
+  }, observerOptions);
+
   function adjustHomeHeight() {
-    const navHeight = nav.offsetHeight;
-    const viewportHeight = window.innerHeight;
-    const calculatedHeight = Math.max(0, viewportHeight - navHeight);
     homePage.style.height = calculatedHeight + "px";
   }
-  function handleScroll() {
-    if (aboutPage) {
-      // Adjust for navbar height
-      if (scroll >= aboutTop) {
-        nav.classList.add("sticky-nav");
-      } else {
-        nav.classList.remove("sticky-nav");
-      }
-    }
-  } /* 
-  function navColor() {
-    if (scroll > aboutTop && scroll) {
-      nav.classList.add("sticky-nav");
-    }
-    if (scroll >= portfolioTop) {
-      nav.classList.remove("nav-get-in-touch", "nav-dark-blue");
-      nav.classList.add("nav-portfolio");
-    } else if (scroll >= getInTouchTop) {
-      nav.classList.add("nav-get-in-touch");
-      nav.classList.remove("class1", "class2", "class3");
-    } else {
-      nav.classList.add("nav-dark-blue");
-    }
-  }*/
-  window.addEventListener("load", adjustHomeHeight);
-  window.addEventListener("resize", adjustHomeHeight);
-  window.addEventListener("scroll", handleScroll);
-  adjustHomeHeight();
-  handleScroll();
-  navColor();
+
+  function updateSectionOffsets() {
+    aboutTop = aboutPage.offsetTop;
+  }
+
+  // Setup
+  window.addEventListener("load", () => {
+    adjustHomeHeight();
+    updateSectionOffsets();
+  });
+
+  window.addEventListener("resize", () => {
+    adjustHomeHeight();
+    updateSectionOffsets();
+  });
+
+  // Observe each section for color class updates
+  sections.forEach((section) => {
+    sectionObserver.observe(section);
+  });
 });

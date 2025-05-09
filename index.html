@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,46 +15,55 @@
 </head>
 <header>
 </header>
-
 <body>
   <main>
     <div id="main-container">
+
       <!-- HOME PAGE SECTION-->
-      <section id="home-page-container" class="w100 h100vh a-i-flex-start" data-nav-class="nav-home">
+
+      <section id="home-page-container" class="w100 h100vh a-i-flex-start p-tb-5-lr-10" data-nav-class="nav-home"  aria-label="Main navigation">
+
         <!-- BANNER -->
+
         <div id="text-main" class="">
           <h1 class="upper name">Olga <br>Mazur</h1>
-          <h2 class="bruno-ace h2">Front-End Developer</h2>
+          <h2 class="bruno-ace line-height font-size-2-6-rem">Front-End Developer</h2>
         </div>
 
 
       </section>
+
       <!-- HOME PAGE SECTION END-->
+
       <!-- NAVBAR -->
-      <div id="main-nav" class="w100 p-t-b">
-        <nav class="bruno-ace upper j-s-a" aria-label="Primary Navigation">
-          <a class="active" href="#about-me" id="navbtn_about-me" title="About Me" role="button">About Me</a>
-          <a class="" href="#portfolio" id="navbtn_portfolio" title="Portfolio" role="button">Portfolio</a>
-          <a class="" href="#get-in-touch" id="navbtn_get-in-touch" title="Get in touch" role="button">Get in
+
+      <div id="main-nav" class="w100 p-t-b ">
+        <nav class="bruno-ace upper j-s-a white-text-0-8" aria-label="Primary Navigation">
+          <a class="active btn-5" href="#about-me" id="navbtn_about-me" title="About Me" role="button">About Me</a>
+          <a class="btn-5" href="#portfolio" id="navbtn_portfolio" title="Portfolio" role="button">Portfolio</a>
+          <a class="btn-5" href="#get-in-touch" id="navbtn_get-in-touch" title="Get in touch" role="button">Get in
             Touch</a>
         </nav>
       </div>
+
       <!-- ABOUT ME SECTION -->
+       
+      <section id="about-me" class="row a-i-center d-b-bg-o p-tb-5-lr-10  " data-nav-class="nav-about" aria-label="section with brief information about me, list of skills, picture and a button that opens my CV">
 
-      <section id="about-me" class="column j-center a-i-center d-b-bg-o   " data-nav-class="nav-about">
+          <!-- TEXT ON THE LEFT CONTAINER ABOUT ME AND SKILLS-->
 
-        <div class="row j-center a-i-center j-s-center" id="about-me-container">
-          <!-- TEXT ON THE LEFT CONTAINER -->
-          <div id="about-me-text-container" class="border-mixed d-b-bg h100">
-            <div id="about-me-text" class="robot">
+          <div class="w50 column border-mixed d-b-bg h100 a-i-center j-center p-tb-1-lf-2">
+            <div class="robot light-blue-muted"  aria-label="about me text">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Magni reprehenderit repellendus provident, modi quo rem, natus
               animi eaque, consectetur maxime numquam? Et, delectus
               consectetur similique iste aperiam totam explicabo id.
             </div>
+
             <!-- SKILLS LIST -->
-            <div id="skills " class="bruno-ace l-b-t bruno-ace l-h-1-5 ">
-              <div class="row j-s-a">
+
+            <div class="bruno-ace l-b-t bruno-ace l-h-1-5 column p-tb-1-lf-2" aria-label="list of skills">
+              <div class="row gap-5">
                 <h4 class="skills-item border-mixed upper m-b-bg bruno-ace w-fit ">
                   html
                 </h4>
@@ -69,7 +77,7 @@
                   vsc
                 </h4>
               </div>
-              <div class="row j-around">
+              <div class="row gap-5">
                 <h4 class="skills-item border-mixed upper m-b-bg bruno-ace w-fit">
                   bootstrap
                 </h4>
@@ -77,7 +85,7 @@
                   javascript
                 </h4>
               </div>
-              <div class="row">
+              <div class="row gap-5">
                 <h4 class="skills-item border-mixed upper m-b-bg bruno-ace w-fit">
                   react
                 </h4>
@@ -87,106 +95,127 @@
               </div>
             </div>
           </div>
+
           <!-- RIGHT SECTION ABOUT ME -->
-          <div class="" id="about-me-right">
+
+          <div class="w50 j-flex.end" id="about-me-right">
+
             <!-- PICTURE -->
-            <div id="picture-olga">
-              <img src="pictures\olga-picture.png" />
+
+            <div id="picture-olga" aria-label="picture of Olga">
+              <img src="pictures/olga-picture.png"
+              loading="lazy"  alt="Olga Mazur" />
             </div>
+
             <!-- CV BUTTON -->
 
-            <div id="cv" class="y-bg circle d-b-t bruno-ace  j-center a-i-center">
-              <a href="https://cv-n2ys.onrender.com/">My CV</a>
-            </div>
-          </div>
+            <button 
+            class="y-bg circle d-b-t bruno-ace j-center a-i-center spin" 
+            onclick="window.location='https://cv-n2ys.onrender.com/'"
+            aria-label="Button opening my CV"
+          >
+            <span class="button-text">My CV</span>
+          </button>
         </div>
       </section>
+
       <!-- ABOUT ME SECTION END -->
 
 
       <!-- PORTFOLIO SECTION -->
 
-      <section id="portfolio" class="m-b-bg-o   " data-nav-class="nav-portfolio">
-        <div id="portfolio-container" class="row gap-5 h-w-100 j-evenly a-i-center">
+      <section id="portfolio" class="m-b-bg-o p-tb-5-lr-10 row gap-5 j-evenly a-i-center" data-nav-class="nav-portfolio" aria-label="section with my portfolio">
+
           <!--  FIRST ITEM -->
-          <div id="portfolio-1" class="m-b-bg h-70 border-mixed">
-            <img />
-            <h3 class="upper y-t robot">Loves Labor</h3>
+
+          <article class="m-b-bg h-70 border-mixed p-tb-1-lf-2 " aria-label="first item in portfolio, Loves Labor preview and a description">
+            <img src="images/project1.png" alt="Project 1 preview"
+            loading="lazy" />
+            <h2 class="upper y-t robot">Loves Labor</h2>
             <p class="robot">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Magni reprehenderit repellendus provident, modi quo rem, natus
               animi eaque, consectetur maxime numquam? Et, delectus
               consectetur similique iste aperiam totam explicabo id.
             </p>
-          </div>
+          </article>
 
           <!--  SECOND ITEM -->
-          <div id="portfolio-2" class="m-b-bg h-70 border-mixed">
-            <img />
-            <h3 class="upper y-t robot">QSB</h3>
+
+          <article class="m-b-bg h-70 border-mixed p-tb-1-lf-2"  aria-label="second item in portfolio, QSB preview and a description">
+            <img src="images/project1.png" alt="Project 1 preview" 
+            loading="lazy"  />
+            <h2 class="upper y-t robot">QSB</h2>
             <p class="robot">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Magni reprehenderit repellendus provident, modi quo rem, natus
               animi eaque, consectetur maxime numquam? Et, delectus
               consectetur similique iste aperiam totam explicabo id.
             </p>
-          </div>
+          </article>
 
           <!--  THIRD ITEM -->
-          <div id="portfolio-3" class="m-b-bg h-70 border-mixed">
-            <img />
-            <h3 class="uppercase y-t robot">League of Pigs</h3>
+
+          <article class="m-b-bg h-70 border-mixed p-tb-1-lf-2"  aria-label="third item in portfolio, League of Pigs preview and a description">
+            <img src="images/project1.png" alt="Project 1 preview" 
+            loading="lazy" />
+            <h2 class="uppercase y-t robot">League of Pigs</h2>
             <p class="robot">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Magni reprehenderit repellendus provident, modi quo rem, natus
               animi eaque, consectetur maxime numquam? Et, delectus
               consectetur similique iste aperiam totam explicabo id.
             </p>
-          </div>
-        </div>
+          </article>
       </section>
 
       <!-- PORTFOLIO SECTION END -->
 
-      <!-- GET IN TOUCH SECTION  -->
-      <section class=" l-b-bg-o " id="get-in-touch" data-nav-class="nav-contact">
 
-        <div class=" bruno-ace row j-s-a   a-i-center ">
+      <!-- GET IN TOUCH SECTION  -->
+
+      <section class="l-b-bg-o" aria-label="Get in touch section with contact info" data-nav-class="nav-contact" id="get-in-touch">
+        <div class="bruno-ace row j-s-a a-i-center h100vh">
+
+          <!-- GET IN TOUCH LEFT SIDE, CONTACT INFO -->
+
           <div class="column">
-            <a href="mailto:mazurolga1998@protonmail.com">
-              <div class="contact-item border-mixed d-b-bg p10-l-r p2-t-b  w-fit" id="contact-item1">
+            <a href="mailto:mazurolga1998@protonmail.com" rel="noopener noreferrer" aria-label="email">
+              <div class="contact-item border-mixed d-b-bg p10-l-r p2-t-b  w-fit ">
                 mazurolga1998@protonmail.com
               </div>
             </a>
-            <div class="contact-item border-mixed d-b-bg p10-l-r p2-t-b  w-fit" id="contact-item2">
+            <div class="contact-item border-mixed d-b-bg p10-l-r p2-t-b w-fit" aria-label="phone number">
               +48 405 83 103
             </div>
-            <div class="contact-item border-mixed d-b-bg p10-l-r p2-t-b w-fit" id="contact-item3">
-              <a href="www.linkedin.com/in/olga-mazur-640045212" target="_blank">LinkedIn</a>
+            <div class="contact-item border-mixed d-b-bg p10-l-r p2-t-b w-fit">
+              <a href="https://www.linkedin.com/in/olga-mazur-640045212" rel="noopener noreferrer" target="_blank" aria-label="click to open linked in">LinkedIn</a>
             </div>
-            <div class="contact-item border-mixed d-b-bg p10-l-r p2-t-b w-fit" id="contact-item4">
-              <a href="https://github.com/omfe1811" target="_blank">GitHub</a>
+            <div class="contact-item border-mixed d-b-bg p10-l-r p2-t-b w-fit" >
+              <a href="https://github.com/omfe1811" target="_blank" aria-label="click to open my GitHub"  rel="noopener noreferrer">GitHub</a>
             </div>
           </div>
 
-          <div id="right-side-get-in-touch" class="circle y-bg-o d-b-t j-center a-i-center">
-            <a href="olgaportfolioplaceholder.com" target="_blank">
-              <h3 class=" bruno-ace ">
-                Check out my digital art
-              </h3>
-            </a>
+              <!-- GET IN TOUCH SECTION RIGHT -->
+               <div class="models">
+              <button 
+              class="y-bg circle y-bg-o d-b-t j-center a-i-center btn spin" 
+              onclick="window.location='https://olgaportfolioplaceholder.com/'"
+              aria-label="Button opening a gallery with various digital art and doodles"
+            >
+              <span class="bruno-ace">My CV</span>
+            </button>
           </div>
         </div>
-
       </section>
+
       <!-- GET IN TOUCH SECTION END -->
+
     </div>
   </main>
+
   <!--  MAIN CONTAINER END -->
-  <script src="scripts/script.js" defer>
 
-  </script>
-
+  <script src="scripts/script.js" defer></script>
 </body>
-
 </html>

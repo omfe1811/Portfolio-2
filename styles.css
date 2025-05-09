@@ -75,6 +75,7 @@ img,
 picture {
   max-width: 100%;
   display: block;
+  height: auto;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -108,6 +109,7 @@ START OF MY STYLING
 
 :root {
   /*      COLORS      */
+  --white-opacity-0-8: rgba(255, 255, 255, 0.8);
   --dark-blue: #021130;
   --opacity-dark-blue: #021130cc;
   --medium-blue: #133474;
@@ -116,6 +118,7 @@ START OF MY STYLING
   --opacity-lightest-blue: rgba(132, 134, 172, 0.6);
   --yellow: #d6b265;
   --opacity-yellow: #d6b265cc;
+  --light-blue-about-me-text: #babcee;
   /*      BREAKPOINTS       */
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
@@ -134,13 +137,114 @@ UNIVERSAL
 .inline {
   display: inline;
 }
+
 section {
-  scroll-snap-align: start;
-  margin-bottom: 0%;
-  height: 100vh;
-  padding: 4rem;
+scroll-margin-top: 80px; /* same as nav height */
+position: relative;
+z-index: 1;
+scroll-snap-align: start;
+height: 100vh;
+scroll-margin-top: 4rem;
 }
 
+.btn-5:hover{
+  background: transparent;
+  color:#ffda47;
+}
+.btn-5:before,
+.btn-5:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  background:#c50000;
+  width:0;
+ box-shadow:  0 0 5px#ff4747,  0 0 5px #ff4747 ;
+  transition:1000ms ease all;
+}
+.btn-5:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.btn-5:hover:before,
+.btn-5:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+
+button { /* or whatever your current button color is */
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px; /* assuming 'circle' means rounded */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #e6be00; /* a darker shade */
+  transform: scale(1.03); /* optional: slight zoom for effect */
+}
+button {
+    border: 0;
+    position: relative;
+}
+
+button::before,
+button::after {
+    box-sizing: inherit;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.spin {
+    height: 200px;
+    width: 200px;
+}
+
+.spin::before,
+.spin::after {
+    top: 0;
+    left: 0;
+}
+
+.spin::before {
+    border: 2px solid transparent;
+}
+
+.spin:hover::before {
+    border-top-color:rgb(255, 19, 19);
+    border-right-color:rgb(255, 19, 19);
+    border-bottom-color:rgb(255, 19, 19);
+    transition: border-top-color 0.15s linear, border-right-color 0.15s linear 0.10s, border-bottom-color 0.15s linear 0.20s;
+}
+
+.spin::after {
+    border: 0 solid transparent;
+}
+
+.spin:hover::after {
+    border-top: 2px solid rgb(255, 19, 19);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    transform: rotate(270deg);
+    transition: transform 0.4s linear 0s, border-left-width 0s linear 0.35s, -webkit-transform 0.4s linear 0s;
+}
+
+.circle {
+    border-radius: 100%;
+    box-shadow: none;
+}
+
+.circle::before,
+.circle::after {
+    border-radius: 100%;
+}
 .w100 {
   width: 100%;
 }
@@ -162,27 +266,12 @@ section {
 .h-70 {
   height: 70%;
 }
-/* WIDTH AND PADDING FOR SKILLS AND CONTACT */
 
 .w-fit {
   width: fit-content;
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 2rem; 
 }
-/*
-BACKGROUNDS
-*/
 
-/* .background {
-  position: absolute;
-  width: 100%;
-  z-index: -1;
-  height: 300vh;
-}
-  /* 
-  max-height: 1784px; */
-/* 
-NAV
-*/
 
 a {
   text-decoration: none;
@@ -191,21 +280,20 @@ a {
   position: sticky;
   background-color: var(--opacity-dark-blue);
   color: white;
-  z-index: 1;
+  z-index: 9999;
+  top: 0;
   font-size: 1.6rem;
   height: 4rem;
   align-content: center;
+  background-color: var(--dark-blue); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
-.sticky-nav {
-  position: sticky !important;
-  top: 0;
-  z-index: 999;
-  left: 0;
-  width: 100%;
-  color: rgb(255, 255, 255);
+
+
   /* 
   border-bottom: 1px solid var(--medium-blue); */
-}
+
 .nav-home {
   background-color: rgba(2, 17, 48, 0.9);
 }
@@ -218,33 +306,6 @@ a {
 .nav-contact {
   background-color: var(--lightest-blue);
 }
-/* .active {
-  font-family: "Orbitron", sans-serif;
-  font-size: 70px;
-  font-weight: 600;
-  color: transparent;
-  background: linear-gradient(
-    120deg,
-    var(--dark-blue),
-    var(--opacity-dark-blue),
-    #9d00ff,
-    #ffcc70
-  );
-  --dark-blue: #021130;
-  --opacity-dark-blue: #021130cc;
-  --medium-blue: #133474;
-  --opacity-medium-blue: #133474cc;
-  --lightest-blue: #8486ac;
-  --opacity-lightest-blue: #8486accc;
-  --yellow: #d6b265;
-  --opacity-yellow: #d6b265cc;
-  background-size: 300% 300%;
-  --webkit-background-clip: text;
-  background-clip: text;
-  animation: shine 6s ease-in-out infinite;
-
-  position: relative;
-} */
 
 @keyframes shine {
   0% {
@@ -258,11 +319,10 @@ a {
   }
 }
 
-/* .active {
-  font-size: 1rem;
-} */
+
 
 /* BORDER FOR ABOUT ME, SKILLS AND CONTACT */
+
 .border-mixed {
   border-top-right-radius: 20%;
   border-bottom-left-radius: 20%;
@@ -283,16 +343,9 @@ a {
 ABOUT ME
 */
 
-#about-me-text {
-  color: #babcee;
-}
-#about-me-text-container {
-  width: 50%;
-}
+
+
 #about-me-right {
-  width: 50%;
-  padding-right: 0%;
-  margin-right: 0%;
   display: flex;
   justify-content: flex-end;
 }
@@ -404,7 +457,7 @@ PADDING
   padding: 1.4rem 0;
 }
 .p2-t-b {
-  padding-top: 1rem;
+  padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
@@ -414,6 +467,12 @@ PADDING
 }
 .p0 {
   padding: 0;
+}
+.p-tb-5-lr-10{
+  padding: 5rem 10rem;
+}
+.p-tb-1-lf-2{
+  padding: 1rem 2rem;
 }
 /* 
 MARGIN
@@ -426,14 +485,21 @@ MARGIN
 
 .circle {
   border-radius: 50%;
-  height: 20vh;
-  width: 20vh;
+  height: 15rem;
+  width: 15rem;;
+ min-height: fit-content;
   text-align: center;
 }
 
 /*          
 COLORS
 */
+
+/* WHITE 80% OPACITY */
+.white-text-0-8{
+  color: var(--white-opacity-0-8);
+  
+}
 
 /* DARK BLUE BACKGROUND */
 .d-b-bg {
@@ -473,6 +539,7 @@ COLORS
 /* LIGHTEST BLUE TEXT */
 .l-b-t {
   color: var(--lightest-blue);
+ 
 }
 
 /* YELLOW BACKGROUND */
@@ -489,10 +556,15 @@ COLORS
 .y-t {
   color: var(--yellow);
 }
+.light-blue-muted{
+  color:var( --light-blue-about-me-text)
+}
 
 /*         FONTS AND TEXT       */
-h2 {
+.font-size-2-6-rem{
   font-size: 2.6rem;
+}
+.line-height {
   line-height: 1.5;
 }
 /* UPPERCASE */
@@ -501,13 +573,13 @@ h2 {
 }
 /* ROBOT MONO */
 .robot {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto Mono", Consolas, "Courier New", monospace;
   font-optical-sizing: auto;
   font-weight: 500; /* Use a value from 100 to 700 */
   font-style: normal;
 }
 .bruno-ace {
-  font-family: "Bruno Ace SC", sans-serif;
+  font-family: "Bruno Ace SC", sans-serif, "Courier New", monospace;
   font-weight: 200;
   font-style: normal;
 }
@@ -530,5 +602,25 @@ h2 {
 @media (max-width: 400px) {
   .flex-grid {
     display: block;
+  }
+}
+@media (max-width: 768px) {
+  .p10-l-r {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .name {
+    font-size: 4rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .w50 {
+    width: 100%;
   }
 }
