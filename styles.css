@@ -139,7 +139,6 @@ UNIVERSAL
 }
 
 section {
-scroll-margin-top: 80px; /* same as nav height */
 position: relative;
 z-index: 1;
 scroll-snap-align: start;
@@ -147,9 +146,14 @@ height: 100vh;
 scroll-margin-top: 4rem;
 }
 
-.btn-5:hover{
-  background: transparent;
-  color:#ffda47;
+a:hover{
+  color:#8a87ab;
+}
+.hover-contact:hover{
+  color:#8a87ab;
+}
+.active{
+  color:#b33e2e ;
 }
 .btn-5:before,
 .btn-5:after{
@@ -158,9 +162,9 @@ scroll-margin-top: 4rem;
   top:0;
   right:0;
   height:2px;
-  background:#c50000;
+  background:#d1b365;
   width:0;
- box-shadow:  0 0 5px#ff4747,  0 0 5px #ff4747 ;
+ box-shadow:  0 0 5px#fe7a03,  0 0 5px #fe7a03 ;
   transition:1000ms ease all;
 }
 .btn-5:after{
@@ -183,10 +187,8 @@ button { /* or whatever your current button color is */
   transition: background-color 0.3s ease, transform 0.2s ease;
   cursor: pointer;
 }
-
-.button:hover {
-  background-color: #e6be00; /* a darker shade */
-  transform: scale(1.03); /* optional: slight zoom for effect */
+button:hover {
+  background-color:#d9bf5c; /* a darker shade */
 }
 button {
     border: 0;
@@ -238,7 +240,7 @@ button::after {
 
 .circle {
     border-radius: 100%;
-    box-shadow: none;
+     box-shadow:  0 0 7px rgb(255, 19, 19),  0 0 7px rgb(255, 19, 19) ;
 }
 
 .circle::before,
@@ -334,7 +336,7 @@ a {
 
 .name {
   font-family: Header;
-  font-size: 12rem;
+  font-size: 15rem;
   line-height: 1;
   letter-spacing: 0.7rem;
 }
@@ -623,4 +625,27 @@ COLORS
   .w50 {
     width: 100%;
   }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.fade-in {
+  animation: fadeIn 2s ease-in forwards;
 }
