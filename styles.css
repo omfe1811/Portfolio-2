@@ -13,6 +13,7 @@ html {
   color: rgb(255, 255, 255);
   font-family: Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 /* Remove default margin in favour of better control in authored CSS */
@@ -114,11 +115,14 @@ START OF MY STYLING
   --opacity-dark-blue: #021130cc;
   --medium-blue: #133474;
   --opacity-medium-blue: #133474cc;
-  --lightest-blue: #8486ac;
-  --opacity-lightest-blue: rgba(132, 134, 172, 0.6);
+  --lightest-blue: #5583c7;
+  --opacity-lightest-blue:rgba(85, 131, 199, 0.47);
   --yellow: #d6b265;
+  --yellow-intense:rgb(241, 200, 89);
   --opacity-yellow: #d6b265cc;
   --light-blue-about-me-text: #babcee;
+  --red:#ff2200;
+  --red-dark: #5A0001;
   /*      BREAKPOINTS       */
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
@@ -145,55 +149,79 @@ scroll-snap-align: start;
 height: 100vh;
 scroll-margin-top: 4rem;
 }
-
-a:hover{
-  color:#8a87ab;
+nav a{
+  color:rgb(252, 253, 255);
+   text-shadow: 0px 0px 0.1rem var(--dark-blue),
+   0px 0px 0.3rem var(--dark-blue),
+   0px 0px 0.4rem var(--dark-blue),
+   0px 0px 0.5rem var(--dark-blue),
+   0px 0px 0.75rem var(--dark-blue),
+   0px 0px 1rem var(--dark-blue),
+   0px 0px 1.25rem var(--dark-blue),
+    0px 0px 2rem var(--dark-blue),
+     0px 0px 2.4rem var(--dark-blue);
 }
+.active{
+   color:var(--yellow-intense) ;
+   text-shadow:
+  0px 0px 0.1rem black,
+   0px 0px 0.3rem black,
+    0px 0px 0.3rem black,
+     0px 0px 0.3rem black,
+      0px 0px 0.3rem black,
+   0px 0px 0.4rem black,
+   0px 0px 0.5rem black,
+   0px 0px 0.75rem var(--red-dark),
+    0px 0px 0.75rem var(--red-dark),
+    0px 0px 0.75rem var(--red-dark),
+    0px 0px 0.75rem var(--red-dark),
+    0px 0px 0.75rem var(--red-dark),
+     0px 0px 0.75rem var(--red);
+   font-weight: 700;
+}
+.active:hover {
+  color:var(--yellow-intense);
+}
+nav a:hover{
+  color: var(--light-blue-about-me-text);
+
+}
+
+.nav-contact .active{
+   color:var(--yellow-intense) ;
+}
+
+
+
+.nav-contact a:hover{
+  color: var(--);
+}
+
+/*            PHONE NUMBER, NO UNDERLINE ON HOVER         */
 .hover-contact:hover{
   color:#8a87ab;
 }
-.active{
-  color:#b33e2e ;
-}
-.btn-5:before,
-.btn-5:after{
-  content:'';
-  position:absolute;
-  top:0;
-  right:0;
-  height:2px;
-  background:#d1b365;
-  width:0;
- box-shadow:  0 0 5px#fe7a03,  0 0 5px #fe7a03 ;
-  transition:1000ms ease all;
-}
-.btn-5:after{
-  right:inherit;
-  top:inherit;
-  left:0;
-  bottom:0;
-}
-.btn-5:hover:before,
-.btn-5:hover:after{
-  width:100%;
-  transition:800ms ease all;
-}
 
 
-button { /* or whatever your current button color is */
-  border: none;
+
+
+
+
+button { 
+  border: 0.01rem solid var(--yellow);
   padding: 1rem 2rem;
-  border-radius: 50px; /* assuming 'circle' means rounded */
-  transition: background-color 0.3s ease, transform 0.2s ease;
   cursor: pointer;
+  box-shadow: inset  0 0 20px var(--red-dark),  0 0 50px transparent;
+  position: relative;
+   transition: all 1s ease;
 }
 button:hover {
-  background-color:#d9bf5c; /* a darker shade */
+  background-color:var(--yellow); /* a darker shade */
+  box-shadow: inset 20px 0  20px var(--red),  0 0 50px var(--yellow-intense);
+ 
+  border: 1px solid var(--yellow-intense);
 }
-button {
-    border: 0;
-    position: relative;
-}
+
 
 button::before,
 button::after {
@@ -202,51 +230,16 @@ button::after {
     position: absolute;
     width: 100%;
     height: 100%;
+   border: 0 solid transparent;
+    border-radius: 50%;
 }
 
-.spin {
-    height: 200px;
-    width: 200px;
-}
 
-.spin::before,
-.spin::after {
-    top: 0;
-    left: 0;
-}
 
-.spin::before {
-    border: 2px solid transparent;
-}
 
-.spin:hover::before {
-    border-top-color:rgb(255, 19, 19);
-    border-right-color:rgb(255, 19, 19);
-    border-bottom-color:rgb(255, 19, 19);
-    transition: border-top-color 0.15s linear, border-right-color 0.15s linear 0.10s, border-bottom-color 0.15s linear 0.20s;
-}
 
-.spin::after {
-    border: 0 solid transparent;
-}
 
-.spin:hover::after {
-    border-top: 2px solid rgb(255, 19, 19);
-    border-left-width: 1px;
-    border-right-width: 1px;
-    transform: rotate(270deg);
-    transition: transform 0.4s linear 0s, border-left-width 0s linear 0.35s, -webkit-transform 0.4s linear 0s;
-}
 
-.circle {
-    border-radius: 100%;
-     box-shadow:  0 0 7px rgb(255, 19, 19),  0 0 7px rgb(255, 19, 19) ;
-}
-
-.circle::before,
-.circle::after {
-    border-radius: 100%;
-}
 .w100 {
   width: 100%;
 }
@@ -280,27 +273,47 @@ a {
 }
 #main-nav {
   position: sticky;
-  background-color: var(--opacity-dark-blue);
-  color: white;
+  color: white; 
   z-index: 9999;
   top: 0;
   font-size: 1.6rem;
   height: 4rem;
   align-content: center;
-  background-color: var(--dark-blue); 
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
+
+.hover-underline::after,
+.hover-underline::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right,var(--yellow),var(--red-dark));
+  bottom: 2px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 2s ease-out;
+}
+
+.hover-underline::before {
+  top: 1px;
+  transform-origin: left;
+}
+
+.hover-underline:hover::after,
+.hover-underline:hover::before {
+  transform: scaleX(1);
+}
 
   /* 
   border-bottom: 1px solid var(--medium-blue); */
 
 .nav-home {
-  background-color: rgba(2, 17, 48, 0.9);
+  background-color: rgba(2, 17, 48, 0.57);
 }
 .nav-about {
   background-color: var(--dark-blue);
+ 
 }
 .nav-portfolio {
   background-color: var(--medium-blue);
@@ -647,5 +660,10 @@ COLORS
 }
 
 .fade-in {
-  animation: fadeIn 2s ease-in forwards;
+  animation: fadeIn 1s ease-in forwards;
+}
+@media (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
 }

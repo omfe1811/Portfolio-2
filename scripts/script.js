@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector("#main-nav");
-  const homePage = document.getElementById("home-page-container");
+  const homePage = document.getElementById("home-page");
   const sections = document.querySelectorAll("section");
   const navHeight = nav.offsetHeight;
 
