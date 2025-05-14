@@ -662,8 +662,27 @@ COLORS
 .fade-in {
   animation: fadeIn 1s ease-in forwards;
 }
+
 @media (max-width: 600px) {
-  html {
-    font-size: 14px;
+  body { font-size: 10px; } /* Mobile */
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  body { font-size: 12px; } /* Tablet */
+}
+
+@media (min-width: 1025px) {
+  body { font-size: 14px; }
+.name {
+  font-size: 10rem;}
+.font-size-2-6-rem{
+    font-size:2rem
   }
+  .p-tb-5-lr-10{
+    padding:2rem 5rem;
+  }
+}
+
+@media(min-width: 1300px){
+  body { font-size: 16px; }
 }
