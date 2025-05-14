@@ -166,19 +166,15 @@ nav a{
 .active{
    color:var(--yellow-intense) ;
    text-shadow:
-  0px 0px 0.1rem black,
-   0px 0px 0.3rem black,
-    0px 0px 0.3rem black,
+   0px 0px 0.1rem black,
+    0px 0px 0.2rem black,
      0px 0px 0.3rem black,
-      0px 0px 0.3rem black,
-   0px 0px 0.4rem black,
+      0px 0px 0.4rem black,
    0px 0px 0.5rem black,
-   0px 0px 0.75rem var(--red-dark),
-    0px 0px 0.75rem var(--red-dark),
-    0px 0px 0.75rem var(--red-dark),
-    0px 0px 0.75rem var(--red-dark),
-    0px 0px 0.75rem var(--red-dark),
-     0px 0px 0.75rem var(--red);
+   0px 0px 0.6rem black,
+      0px 0px 0.8rem var(--red),
+      0px 0px 0.9rem var(--red),
+      0px 0px 0.7rem var(--red);
    font-weight: 700;
 }
 .active:hover {
@@ -193,18 +189,10 @@ nav a:hover{
    color:var(--yellow-intense) ;
 }
 
-
-
-
 /*            PHONE NUMBER, NO UNDERLINE ON HOVER         */
 .hover-contact:hover{
   color:#8a87ab;
 }
-
-
-
-
-
 
 button { 
   border: 0.01rem solid var(--yellow);
@@ -217,7 +205,6 @@ button {
 button:hover {
   background-color:var(--yellow); /* a darker shade */
   box-shadow: inset 20px 0  20px var(--red),  0 0 50px var(--yellow-intense);
- 
   border: 1px solid var(--yellow-intense);
 }
 
