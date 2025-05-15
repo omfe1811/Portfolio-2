@@ -163,20 +163,7 @@ nav a{
     0px 0px 2rem var(--dark-blue),
      0px 0px 2.4rem var(--dark-blue);
 }
-.active{
-   color:var(--yellow-intense) ;
-   text-shadow:
-   0px 0px 0.1rem black,
-    0px 0px 0.2rem black,
-     0px 0px 0.3rem black,
-      0px 0px 0.4rem black,
-   0px 0px 0.5rem black,
-   0px 0px 0.6rem black,
-      0px 0px 0.8rem var(--red),
-      0px 0px 0.9rem var(--red),
-      0px 0px 0.7rem var(--red);
-   font-weight: 700;
-}
+
 .active:hover {
   color:var(--yellow-intense);
 }
@@ -487,8 +474,7 @@ MARGIN
 .circle {
   border-radius: 50%;
   height: 15rem;
-  width: 15rem;;
- min-height: fit-content;
+  width: 15rem;
   text-align: center;
 }
 

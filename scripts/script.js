@@ -2,16 +2,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector("#main-nav");
   const homePage = document.getElementById("home-page");
   const sections = document.querySelectorAll("section");
-  const navHeight = nav.offsetHeight;
+  const navHeight = nav.offsetHeight; 
+   const navButton = document.querySelector('.nav-button');
 
-  // Adjust home section height to fit screen
+  // HOME HEIGHT-NAV HEIGHT, COLOR CHANGES BASED ON THE VIEWPORT AND SECTION HEIGHT
   function adjustHomeHeight() {
     const viewportHeight = window.innerHeight;
     const calculatedHeight = Math.max(0, viewportHeight - nav.offsetHeight);
     if (homePage) homePage.style.height = calculatedHeight + "px";
   }
 
-  // Handle sticky nav class when scrolling past the about section
+  // STICKY NAV WITH SCROLL PAST ABOUT ME
   function handleStickyNav() {
     const aboutSection = document.querySelector("#about-me");
     if (!aboutSection) return;
@@ -24,19 +25,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Observer for updating nav background class based on visible section
+//UPDATE NAV CLASS BASED ON THE SECTION 90% OF PAGE=CHANGE COLOR
   function setupIntersectionObserver() {
     const observerOptions = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.6,
+      threshold: 0.9,
     };
-
+//UPDATE CLASS OF NAVBAR BASED ON SCROLL
     const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const colorClass = entry.target.getAttribute("data-nav-class");
           nav.className = `main-nav ${colorClass}`;
+           
         }
       });
     }, observerOptions);
@@ -46,15 +48,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Set up all listeners and observers
+
   function init() {
     adjustHomeHeight();
     handleStickyNav();
     setupIntersectionObserver();
   }
 
-  // Events
+  // HANDLE LOAD AND RESIZE->RESPONSIVE NAVBAR COLOR CHANGES
   window.addEventListener("load", init);
   window.addEventListener("resize", adjustHomeHeight);
   window.addEventListener("scroll", handleStickyNav);
+ // In IntersectionObserver
+if (navButton) {
+  navButton.classList.add("highlighted");
+} else {
+  navButton.classList.remove("highlighted");
+}
+
+// Separate manual toggle
+if (navButton) {
+  navButton.addEventListener("click", () => {
+    navButton.classList.toggle("active");
+  });
+}
+
 });
