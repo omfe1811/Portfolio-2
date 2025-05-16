@@ -2,8 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector("#main-nav");
   const homePage = document.getElementById("home-page");
   const sections = document.querySelectorAll("section");
-  const navHeight = nav.offsetHeight; 
-   const navButton = document.querySelector('.nav-button');
+  const navHeight = nav.offsetHeight;
 
   // HOME HEIGHT-NAV HEIGHT, COLOR CHANGES BASED ON THE VIEWPORT AND SECTION HEIGHT
   function adjustHomeHeight() {
@@ -25,20 +24,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-//UPDATE NAV CLASS BASED ON THE SECTION 90% OF PAGE=CHANGE COLOR
+  //UPDATE NAV CLASS BASED ON THE SECTION 90% OF PAGE=CHANGE COLOR
   function setupIntersectionObserver() {
     const observerOptions = {
       root: null,
       rootMargin: "0px",
       threshold: 0.9,
     };
-//UPDATE CLASS OF NAVBAR BASED ON SCROLL
+    //UPDATE CLASS OF NAVBAR BASED ON SCROLL
     const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const colorClass = entry.target.getAttribute("data-nav-class");
           nav.className = `main-nav ${colorClass}`;
-           
         }
       });
     }, observerOptions);
@@ -55,22 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
     setupIntersectionObserver();
   }
 
-  // HANDLE LOAD AND RESIZE->RESPONSIVE NAVBAR COLOR CHANGES
+  // HANDLE LOAD AND RESIZE->RESPONSIVE NAVBAR
   window.addEventListener("load", init);
   window.addEventListener("resize", adjustHomeHeight);
   window.addEventListener("scroll", handleStickyNav);
- // In IntersectionObserver
-if (navButton) {
-  navButton.classList.add("highlighted");
-} else {
-  navButton.classList.remove("highlighted");
-}
-
-// Separate manual toggle
-if (navButton) {
-  navButton.addEventListener("click", () => {
-    navButton.classList.toggle("active");
-  });
-}
-
 });

@@ -1,59 +1,85 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector("#main-nav");
-  const aboutPage = document.querySelector("#about-me");
-  const homePage = document.getElementById("home-page-container");
-  const portfolio = document.getElementById("portfolio");
-  const getInTouch = document.getElementById("get-in-touch");
+  const homePage = document.getElementById("home-page");
   const sections = document.querySelectorAll("section");
-
-  let aboutTop = 0;
-
   const navHeight = nav.offsetHeight;
-  const viewportHeight = window.innerHeight;
-  const calculatedHeight = Math.max(0, viewportHeight - 2 * navHeight);
-
-  const colorClasses = ["d-b-bg", "m-d-bg", "nav-dark", "l-b-bg"]; // Replace with your actual color classes
-
-  // IntersectionObserver for color changes
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.6,
-  };
-
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const color = entry.target.getAttribute("data-nav-class");
-        if (color) {
-          nav.classList.remove(...colorClasses);
-          nav.classList.add(color);
-        }
-      }
-    });
-  }, observerOptions);
+  const navButtons = document.querySelectorAll(".nav-button");
 
   function adjustHomeHeight() {
-    homePage.style.height = calculatedHeight + "px";
+    const viewportHeight = window.innerHeight;
+    const calculatedHeight = Math.max(0, viewportHeight - nav.offsetHeight);
+    if (homePage) homePage.style.height = calculatedHeight + "px";
   }
 
-  function updateSectionOffsets() {
-    aboutTop = aboutPage.offsetTop;
+  function handleStickyNav() {
+    const aboutSection = document.querySelector("#about-me");
+    if (!aboutSection) return;
+
+    const aboutTop = aboutSection.getBoundingClientRect().top + window.scrollY;
+    if (window.scrollY >= aboutTop - navHeight) {
+      nav.classList.add("sticky-nav");
+    } else {
+      nav.classList.remove("sticky-nav");
+    }
   }
 
-  // Setup
-  window.addEventListener("load", () => {
-    adjustHomeHeight();
-    updateSectionOffsets();
-  });
+  function clearActiveButtons() {
+    navButtons.forEach(btn => btn.classList.remove("active"));
+  }
 
-  window.addEventListener("resize", () => {
-    adjustHomeHeight();
-    updateSectionOffsets();
-  });
+  function setupIntersectionObserver() {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.6, // Adjust as needed
+    };
 
-  // Observe each section for color class updates
-  sections.forEach((section) => {
-    sectionObserver.observe(section);
-  });
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const sectionId = "#" + entry.target.id;
+        const matchingButton = document.querySelector(`.nav-button[data-target='${sectionId}']`);
+
+        if (entry.isIntersecting) {
+          clearActiveButtons(); // Remove all
+          if (matchingButton) matchingButton.classList.add("active");
+          const colorClass = entry.target.getAttribute("data-nav-class");
+          if (colorClass) nav.className = `main-nav ${colorClass}`;
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach((section) => {
+      sectionObserver.observe(section);
+    });
+  }
+
+  function setupButtonClicks() {
+    navButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        clearActiveButtons(); // Remove active from all
+        btn.classList.add("active");
+
+        // Optional scroll to section
+        const targetSelector = btn.getAttribute("data-target");
+        const targetSection = document.querySelector(targetSelector);
+        if (targetSection) {
+          window.scrollTo({
+            top: targetSection.offsetTop - navHeight,
+            behavior: "smooth",
+          });
+        }
+      });
+    });
+  }
+
+  function init() {
+    adjustHomeHeight();
+    handleStickyNav();
+    setupIntersectionObserver();
+    setupButtonClicks();
+  }
+
+  window.addEventListener("load", init);
+  window.addEventListener("resize", adjustHomeHeight);
+  window.addEventListener("scroll", handleStickyNav);
 });
