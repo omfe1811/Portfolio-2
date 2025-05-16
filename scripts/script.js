@@ -1,59 +1,78 @@
 document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector("#main-nav");
-  const homePage = document.getElementById("home-page-container");
+  const homePage = document.getElementById("home-page");
   const sections = document.querySelectorAll("section");
   const navHeight = nav.offsetHeight;
+  const btns = [...nav.getElementsByClassName("btn")];
 
-  // Adjust home section height to fit screen
-  function adjustHomeHeight() {
-    const viewportHeight = window.innerHeight;
-    const calculatedHeight = Math.max(0, viewportHeight - nav.offsetHeight);
-    if (homePage) homePage.style.height = calculatedHeight + "px";
-  }
+  let suppressActive = false;
 
-  // Handle sticky nav class when scrolling past the about section
-  function handleStickyNav() {
-    const aboutSection = document.querySelector("#about-me");
-    if (!aboutSection) return;
+  // Set #home-page height
+  const adjustHomeHeight = () => {
+    const h = window.innerHeight - navHeight;
+    if (homePage) homePage.style.height = Math.max(0, h) + "px";
+  };
 
-    const aboutTop = aboutSection.getBoundingClientRect().top + window.scrollY;
-    if (window.scrollY >= aboutTop - navHeight) {
-      nav.classList.add("sticky-nav");
-    } else {
-      nav.classList.remove("sticky-nav");
-    }
-  }
+  // Sticky nav
+  const handleStickyNav = () => {
+    const about = document.querySelector("#about-me");
+    if (!about) return;
+    const triggerY = about.getBoundingClientRect().top + window.scrollY - navHeight;
+    nav.classList.toggle("sticky-nav", window.scrollY >= triggerY);
+  };
 
-  // Observer for updating nav background class based on visible section
-  function setupIntersectionObserver() {
-    const observerOptions = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.6,
-    };
-
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const colorClass = entry.target.getAttribute("data-nav-class");
-          nav.className = `main-nav ${colorClass}`;
-        }
-      });
-    }, observerOptions);
-
-    sections.forEach((section) => {
-      sectionObserver.observe(section);
+  // Set active button by section id
+  const setActiveBtn = (id) => {
+    btns.forEach((btn) => {
+      const target = btn.getAttribute("href")?.replace("#", "");
+      btn.classList.toggle("active", target === id);
     });
-  }
+  };
 
-  // Set up all listeners and observers
-  function init() {
+  // Section observer
+  const setupObserver = () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(({ isIntersecting, target }) => {
+        if (!isIntersecting) return;
+
+        nav.className = `main-nav ${target.dataset.navClass || ""}`;
+        if (!suppressActive) setActiveBtn(target.id);
+      });
+    }, { threshold: 0.9 });
+
+    sections.forEach((s) => observer.observe(s));
+  };
+
+  // Handle click on nav buttons
+  btns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      suppressActive = true;
+      btns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const href = btn.getAttribute("href");
+      if (href?.startsWith("#")) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - navHeight,
+            behavior: "smooth",
+          });
+        }
+      }
+
+      setTimeout(() => suppressActive = false, 1000);
+    });
+  });
+
+  // Init
+  const init = () => {
     adjustHomeHeight();
     handleStickyNav();
-    setupIntersectionObserver();
-  }
+    setupObserver();
+  };
 
-  // Events
   window.addEventListener("load", init);
   window.addEventListener("resize", adjustHomeHeight);
   window.addEventListener("scroll", handleStickyNav);
