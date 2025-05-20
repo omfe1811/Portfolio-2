@@ -40,6 +40,7 @@ ol[role="list"] {
 body {
   min-height: 400vh;
   line-height: 1.5;
+  background-color: var(--dark-blue);
   background-image: url(pictures/pillars-2-3.png);
   background-size: cover;
   background-repeat: no-repeat;
@@ -240,9 +241,6 @@ nav a {
 }
 
 
-
-
-
 /*            PHONE NUMBER, NO UNDERLINE ON HOVER         */
 .hover-contact:hover{
   color:#8a87ab;
@@ -279,10 +277,6 @@ button::after {
 
 
 
-#skills{
-  font-size: 5rem;
-  gap:1rem;
-}
 
 
 .w100 {
@@ -335,18 +329,6 @@ button::after {
 
 a {
   text-decoration: none;
-}
-
-@keyframes shine {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 
@@ -738,7 +720,16 @@ COLORS
     padding:1rem 4rem;
   }
 }
-
+@media (max-width: 768px) {
+  button {
+    width: 90vw;
+    height: auto;
+  }
+  .p10-l-r {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
 @media (min-width: 1025px) {
   body { font-size: 14px; }
 .name {
