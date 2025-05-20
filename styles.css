@@ -15,7 +15,9 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
 }
-
+.a-s-center{
+  align-self: center;
+}
 /* Remove default margin in favour of better control in authored CSS */
 body,
 h1,
@@ -239,7 +241,12 @@ nav a {
 .hover-underline:hover::before {
   transform: scaleX(1);
 }
-
+#skills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  justify-items: center;
+}
 
 /*            PHONE NUMBER, NO UNDERLINE ON HOVER         */
 .hover-contact:hover{
@@ -282,7 +289,9 @@ button::after {
 .w100 {
   width: 100%;
 }
-
+.w30{
+  width: 30%;
+}
 .w50 {
   width: 50%;
 }
@@ -360,22 +369,19 @@ a {
 /* 
 ABOUT ME
 */
-
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 #picture-olga {
-  margin-top: 80%;
   height: 12rem;
   width: 12rem;
   
   
 }
 
-.clip{  
-  width: 100%;
-  height: 100%;
-  clip-path: polygon(0 0, 100% 0, 50% 100%, 0% 100%);
-  display: flex;
-}
 #cv{ 
   height: 18rem;
   width: 18rem;
@@ -523,8 +529,8 @@ PADDING
   padding-right: 8rem;
 }
 .p7-l-r {
-  padding-left: 7rem;
-  padding-right: 7rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 .p6-l-r {
   padding-left: 6rem;
